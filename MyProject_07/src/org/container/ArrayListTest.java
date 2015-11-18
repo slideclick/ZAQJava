@@ -1,0 +1,67 @@
+package org.container;
+import java.util.*;
+public class ArrayListTest {
+	public static void main(String[] args) {
+		Random rand =new Random(49);
+		List<String> list =new ArrayList<String>();				
+		list.add(new String("rat"));							
+		list.add(new String("monkey"));
+		list.add(new String("pig"));
+		list.add(new String("rabbit"));
+		System.out.println("1:"+list);
+		String str=new String("horse");
+		list.add(str);
+		System.out.println("2:"+list);
+		System.out.println("3:"+list.contains(str));				
+		System.out.println("4:"+list);
+		String str2=list.get(2);
+		System.out.println("4:"+str2+"  "+list.indexOf(str2));
+		String str3=new String("goat");
+		System.out.println("5:"+list.indexOf(str3));
+		System.out.println("6:"+list.remove(str3));
+		System.out.println("7:"+list.remove(str2));				
+		System.out.println("8:"+list);
+		list.add(3,new String("mouse"));
+		System.out.println("9:"+list);
+		List<String> sub =list.subList(1, 4);					
+		System.out.println("subList:"+sub);
+		System.out.println("10:"+list.containsAll(sub));		
+		Collections.sort(sub);							   	
+		System.out.println("sorted subList:"+sub);
+		System.out.println("11:"+list.containsAll(sub));
+		System.out.println("12:"+list);						
+		Collections.shuffle(sub,rand);
+		System.out.println("shuffle subList:"+sub);
+		System.out.println("13:"+list);
+		System.out.println("14:"+list.containsAll(sub));
+		List<String>copy =new ArrayList<String>(list);
+		System.out.println("15:"+copy);
+		List<String>sub1=Arrays.asList(list.get(0),list.get(4));
+		System.out.println("sub1:"+sub1);
+		copy.retainAll(sub1);								
+		System.out.println("16:"+copy);
+		copy=new ArrayList<String>(list);
+		copy.remove(2);
+		System.out.println("17:"+copy);
+		copy.removeAll(sub1);
+		System.out.println("18:"+copy);
+		copy.set(1, new String("Mouse"));
+		System.out.println("19:"+copy);
+		copy.addAll(1,sub1);								
+		System.out.println("20:"+copy);
+		System.out.println("21:"+list.isEmpty());
+		list.clear();
+		System.out.println("22:"+list);
+		list.add(new String("rat"));
+		list.add(new String("monkey"));
+		list.add(new String("pig"));
+		list.add(new String("rabbit"));
+		System.out.println("23:"+list.isEmpty());
+		System.out.println("24:"+list);
+		Object[] obj=list.toArray();									
+		System.out.println("25:"+obj[0]);
+		String[] str4 =list.toArray(new String[0]);				
+		System.out.println("26:"+str4[1]);
+	}
+}
+
